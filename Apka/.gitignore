@@ -1,0 +1,9 @@
+/node_modules/
+
+# Wynik budowania aplikacji
+/dist/
+/www/
+
+# Pliki cache i logi
+/.angular/cache/
+*.log

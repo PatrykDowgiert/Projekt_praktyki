@@ -1,0 +1,92 @@
+/* GŁÓWNY KONTENER */
+.survey-fill-container {
+  max-width: 800px;
+  margin: 40px auto; /* Wyśrodkuj na stronie */
+  padding: 30px 40px;
+  background-color: #f9f9f9; /* Jasnoszare tło */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+/* NAGŁÓWKI (Tytuł i Opis) */
+.survey-fill-container h2 {
+  color: #333;
+  font-size: 2.2em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.survey-fill-container p {
+  color: #666;
+  font-size: 1.1em;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.survey-fill-container hr {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+
+/* KARTA PYTANIA (to ten div, który miałeś) */
+.question-fill-container {
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ETYKIETA PYTANIA */
+.question-fill-container label {
+  display: block; /* Etykieta nad polem */
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+/* WSZYSTKIE POLA INPUT I SELECT */
+.survey-fill-container input[type="text"],
+.survey-fill-container input[type="number"],
+.survey-fill-container select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box; /* Ważne dla zachowania 'width: 100%' */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efekt FOCUS dla inputów (gdy klikniesz) */
+.survey-fill-container input[type="text"]:focus,
+.survey-fill-container input[type="number"]:focus,
+.survey-fill-container select:focus {
+  border-color: #007bff; /* Niebieska ramka */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none; /* Usuń domyślny 'outline' */
+}
+
+/* PRZYCISK WYŚLIJ */
+.survey-fill-container button[type="submit"] {
+  display: block; /* Przycisk w nowej linii */
+  width: 100%; /* Pełna szerokość */
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: white;
+  background-color: #28a745; /* Zielony */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 30px; /* Odstęp od ostatniego pytania */
+  transition: background-color 0.2s;
+}
+
+.survey-fill-container button[type="submit"]:hover {
+  background-color: #218838; /* Ciemniejszy zielony */
+}

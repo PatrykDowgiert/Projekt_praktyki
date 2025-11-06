@@ -1,0 +1,93 @@
+.list-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+/* Duży przycisk "+ Stwórz" */
+.create-link {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff; /* Niebieski */
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.create-link:hover {
+  background-color: #0056b3;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 30px 0;
+}
+
+.list-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Lista Ankiet */
+.survey-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Karta pojedynczej ankiety */
+.survey-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 15px;
+}
+
+.survey-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #222;
+}
+
+.survey-actions {
+  display: flex;
+  gap: 10px; /* Odstęp między przyciskami */
+}
+
+/* Ogólny styl dla wszystkich linków/przycisków akcji */
+.survey-link {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.survey-link:hover {
+  opacity: 0.8;
+}
+
+.fill { background-color: #28a745; } /* Zielony */
+.results { background-color: #ffc107; color: black; } /* Żółty */
+.delete { background-color: #dc3545; } /* Czerwony */
+
+/* Stan pusty */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 1.1em;
+}

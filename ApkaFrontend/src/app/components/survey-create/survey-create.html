@@ -1,0 +1,53 @@
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="create-container">
+  
+  <h2>Nowa Ankieta</h2>
+  
+  <div>
+    <label for="title">Tytuł ankiety: </label>
+    <input id="title" type="text" formControlName="title">
+  </div>
+  
+  <div style="margin-top: 10px;">
+    <label for="description">Opis: </label>
+    <br>
+    <textarea id="description" formControlName="description" rows="3"></textarea>
+  </div>
+
+  <hr>
+
+  <div formArrayName="pages">
+    
+    @for (page of pages.controls; let pageIndex = $index; track pageIndex) {
+      
+      <div [formGroupName]="pageIndex" class="page-container">
+        
+        <h3>Strona {{ pageIndex + 1 }}</h3>
+        
+        <div formArrayName="questions">
+          
+          @for (question of getQuestions(pageIndex).controls; let qIndex = $index; track qIndex) {
+            <div [formGroupName]="qIndex" class="question-container">
+              
+              <label>Pytanie {{ qIndex + 1 }}:</label>
+              <input type="text" formControlName="questionText">
+              
+              <label>Typ:</label>
+              <select formControlName="questionType">
+              <option [ngValue]="1">Tekst</option>
+              <option [ngValue]="2">Liczba</option>
+              <option [ngValue]="3">Tak/Nie</option>
+            </select>
+
+            </div>
+          } <button type="button" (click)="addQuestion(pageIndex)">+ Dodaj Pytanie</button>
+        
+        </div>
+      </div>
+    } </div>
+
+  <button type="button" (click)="addPage()">+ Dodaj Stronę</button>
+
+  <hr>
+  
+  <button type="submit">Zapisz Ankietę</button>
+</form>

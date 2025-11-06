@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// W pliku: src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router'; // Zostaw tylko RouterOutlet
+import { NavbarComponent } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent], // Zostaw tylko RouterOutlet
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('ApkaFrontend');
+export class AppComponent {
+  // Wszystko stąd zniknęło!
 }

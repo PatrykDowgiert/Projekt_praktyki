@@ -1,0 +1,47 @@
+<div class="survey-fill-container">
+
+  @if (isLoading) { <p>Ładowanie ankiety...</p> }
+  @if (error) { <p style="color: red;">{{ error }}</p> }
+
+  @if (survey && responseForm.controls['answers']) {
+    
+    <h2>{{ survey.title }}</h2>
+    <p>{{ survey.description }}</p>
+    <hr>
+
+    <form [formGroup]="responseForm" (ngSubmit)="onSubmit()">
+
+      <div formArrayName="answers">
+
+        <h3>Odpowiedz na pytania:</h3>
+
+        @for (answerGroup of answers.controls; let i = $index; track i) {
+          
+          <div [formGroupName]="i" class="question-fill-container">
+            
+            <label>
+              {{ answerGroup.get('questionText')?.value }}
+            </label>
+
+            @switch (answerGroup.get('questionType')?.value) {
+              
+              @case (1) {
+                <input type="text" formControlName="answerValue">
+              }
+              
+              @case (2) {
+                <input type="number" formControlName="answerValue">
+              }
+
+              @case (3) {
+                <select formControlName="answerValue">
+                  <option [ngValue]="null">Wybierz...</option>
+                  <option [ngValue]="true">Tak</option>
+                  <option [ngValue]="false">Nie</option>
+                </select>
+              }
+            } </div> } </div> <button type="submit" style="margin-top: 20px;">Wyślij odpowiedzi</button>
+    
+    </form>
+
+  } </div>

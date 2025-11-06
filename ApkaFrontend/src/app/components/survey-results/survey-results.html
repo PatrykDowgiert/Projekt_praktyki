@@ -1,0 +1,36 @@
+<div class="results-container">
+
+  @if (isLoading) {
+    <p>Ładowanie wyników...</p>
+  }
+
+  @if (error) {
+    <p style="color: red;">{{ error }}</p>
+  }
+
+  @if (results && !isLoading && !error) {
+    
+    <h2>Wyniki dla: {{ results.surveyTitle }}</h2>
+    <p> (ID Ankiety: {{ results.surveyId }}) </p>
+
+    <hr>
+
+    @for (question of results.questions.$values; track question.questionId) {
+      <div class="result-question-container">
+        
+        <h4>{{ question.questionText }}</h4>
+
+        <ul>
+          @for (answer of question.answers.$values; track $index) {
+            <li>{{ answer }}</li>
+          }
+          
+          @if (question.answers.$values.length === 0) {
+            <li style="color: #888;">(Brak odpowiedzi)</li>
+          }
+        </ul>
+        
+      </div>
+    }
+
+  } </div>

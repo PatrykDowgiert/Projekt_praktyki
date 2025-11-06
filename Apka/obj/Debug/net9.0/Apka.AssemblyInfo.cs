@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Apka")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6087c20fb9b0e543b5357e594c5c02f72d0fb275")]
 [assembly: System.Reflection.AssemblyProductAttribute("Apka")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Apka")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

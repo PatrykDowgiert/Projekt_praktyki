@@ -1,0 +1,36 @@
+<div class="list-container">
+  
+  <a routerLink="/create" class="create-link">+ Stwórz nową ankietę</a>
+  
+  <hr class="divider">
+
+  <h2>Moje Ankiety</h2>
+
+  <ul class="survey-list">
+    @for (survey of surveys; track survey.surveyId) {
+      <li class="survey-item-card">
+        <span class="survey-title">
+          {{ survey.title }}
+        </span>
+        
+        <div class="survey-actions">
+          <a [routerLink]="['/survey', survey.surveyId]" class="survey-link fill">
+            Wypełnij
+          </a>
+          <a [routerLink]="['/results', survey.surveyId]" class="survey-link results">
+            Wyniki
+          </a>
+          <button (click)="onDelete(survey.surveyId)" class="survey-link delete">
+            Usuń
+          </button>
+        </div>
+      </li>
+    }
+  </ul>
+
+  @if (surveys.length === 0) {
+    <div class="empty-state">
+      <p>Nie ma jeszcze żadnych ankiet. Stwórz pierwszą!</p>
+    </div>
+  }
+</div>

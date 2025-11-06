@@ -67,7 +67,7 @@ namespace Apka.Controllers
         {
             var survey = await _context.Surveys
                 .Include(s => s.Pages)
-                    .ThenInclude(p => p.Questions) 
+                    .ThenInclude(p => p.Questions)
                 .FirstOrDefaultAsync(s => s.SurveyId == id);
 
             if (survey == null)
@@ -76,6 +76,27 @@ namespace Apka.Controllers
             }
 
             return Ok(survey);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSurvey(int id)
+        {
+            // 1. Znajdź ankietę w bazie
+            var survey = await _context.Surveys.FindAsync(id);
+
+            if (survey == null)
+            {
+                // Nie ma takiej ankiety
+                return NotFound();
+            }
+
+            // 2. Usuń ją
+            _context.Surveys.Remove(survey);
+            
+            // 3. Zapisz zmiany
+            await _context.SaveChangesAsync();
+
+            // Zwróć kod 204 (No Content), co oznacza "Sukces, nic nie zwracam"
+            return NoContent();
         }
 
             }
